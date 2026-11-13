@@ -1,31 +1,40 @@
-# 리테일 도메인 최종 프로젝트
+# 리테일 도메인 최종 프로젝트 backend
 
-LG CNS AM Inspire Camp 6기 최종 프로젝트 4조 레포입니다. 도메인은 리테일이고 멘토는 이상헌 멘토님입니다.
+LG CNS AM Inspire Camp 6기 최종 프로젝트 4조의 백엔드 레포입니다. 도메인은 리테일이고 멘토는 이상헌 멘토님입니다.
 
-주제는 아직 정하는 중입니다. 1회차 멘토링(11.14)에서 가안을 검토한 뒤 팀이 확정하면 이 문서에 프로젝트 소개와 주요 기능을 채웁니다.
+주제는 아직 정하는 중입니다. 팀이 확정하면 이 문서에 프로젝트 소개와 주요 기능을 채웁니다.
 
-## 기술 스택 (멘토 계획서 기준, 주제 확정 시 조정)
+## 레포 구성
+
+프론트엔드와 백엔드는 레포를 나눕니다. 이 레포에는 MSA 서비스 전부를 Gradle 멀티 모듈로 두고, Config Server가 읽는 설정 파일은 별도 레포에 둡니다.
+
+```
+frontend   React + Vite                       (별도 레포)
+backend    이 레포
+├─ discovery   Eureka
+├─ gateway     Spring Cloud Gateway, JWT 검증
+├─ config      Config Server
+├─ ai          Spring AI (ChatClient, 툴 호출)
+├─ 업무 서비스  주제 확정 후 결정
+├─ common      서비스가 같이 쓰는 코드
+└─ infra       Dockerfile, docker-compose, 배포 설정
+config     Config Server 설정 파일             (별도 레포)
+```
+
+모듈 골격은 주제와 서비스 분리가 정해진 뒤 만듭니다.
+
+## 기술 스택
+
+수업에서 직접 다룬 스택을 기준으로 정했습니다. 주제 확정 후 조정할 수 있습니다.
 
 | 영역 | 기술 |
 | --- | --- |
-| Frontend | React, TypeScript |
-| Backend | Spring Boot |
-| AI | FastAPI, LLM API, RAG |
-| DB | PostgreSQL |
-| Infra | AWS (ECS, RDS, S3), Docker, GitHub Actions |
-
-## 폴더 구조
-
-```
-frontend/   웹 화면
-backend/    업무 API
-ai/         AI 서비스
-infra/      docker-compose, 배포 설정
-data/       정답셋, 전처리 스크립트 (원본 데이터는 커밋하지 않음)
-docs/       협업 규칙, 설계 문서
-```
-
-서비스를 한 레포에서 관리합니다. API 규격이 바뀔 때 FE·BE·AI를 한 PR에서 같이 고칠 수 있고, 이슈와 Projects 보드가 한곳에 모이기 때문입니다.
+| 언어·프레임워크 | Java 21, Spring Boot 3.5.x, Spring Cloud 2025.0, Gradle 멀티 모듈 |
+| MSA | Eureka, Spring Cloud Gateway, Config Server, OpenFeign, Kafka, Resilience4j |
+| 데이터 | MariaDB, Spring Data JPA, Redis |
+| AI | Spring AI |
+| 관측 | Micrometer, Prometheus, Grafana, Zipkin |
+| 배포 | Docker, GitHub Actions, AWS EC2 |
 
 ## 협업 규칙
 
