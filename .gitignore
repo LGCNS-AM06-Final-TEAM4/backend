@@ -1,0 +1,37 @@
+# 비밀 정보
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS, IDE
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Java / Gradle
+build/
+.gradle/
+out/
+
+# Node
+node_modules/
+dist/
+coverage/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# 데이터 원본은 이용 약관 때문에 커밋하지 않습니다
+data/raw/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*

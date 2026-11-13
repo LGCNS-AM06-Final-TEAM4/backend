@@ -1,0 +1,32 @@
+name: WBS 작업
+description: WBS 말단 작업 하나를 등록합니다 (이슈 1개 = 작업 1개 = 담당 1명)
+title: "[WBS번호] 작업명"
+body:
+  - type: input
+    id: wbs
+    attributes:
+      label: WBS 번호
+      placeholder: "2.3.1"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 할 일
+      description: 동사로 끝나게 적어 주세요
+      placeholder: "환불 요청 API를 구현한다"
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: 완료 기준
+      description: 무엇을 보면 끝났다고 할 수 있는지 적어 주세요
+      placeholder: "- 부분 환불 요청 시 금액 검증 후 200 응답\n- 테스트 코드 통과"
+    validations:
+      required: true
+  - type: input
+    id: due
+    attributes:
+      label: 마감일
+      placeholder: "11/20"
